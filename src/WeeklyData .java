@@ -11,7 +11,7 @@ public class WeeklyData {
     // TODO: Declare a private array to store the week’s data
     //       Choose an appropriate type (double[] or int[])
     //       Create other instance variables as necessary
-    
+    private double[] int waterData;
 
 
     // -------------------------------------------------------------
@@ -28,6 +28,10 @@ public class WeeklyData {
         // TODO: Create a new array with the same length as input
         // TODO: Copy each value from input into the internal data array
         // NOTE: Do NOT do this.data = input; (that would create aliasing)
+        double[] waterData = new double[input.length];
+        for(int i = 0; i < input.length; i++){
+            waterData[i] = input[i];
+        }
     }
 
 
@@ -43,7 +47,11 @@ public class WeeklyData {
         // TODO: Create a variable to store the running total
         // TODO: Use a loop to add each value in the array to the total
         // TODO: Return the total
-        return 0.0; // replace with your calculated total
+        double total = 0;
+        for(num: waterData){
+            total += num;
+        }
+        return total; // replace with your calculated total
     }
 
 
@@ -60,7 +68,13 @@ public class WeeklyData {
         // TODO: If the array length is 0, return 0.0
         // TODO: Otherwise, divide the total by the number of elements
         // Hint: You may call getTotal()
-        return 0.0; // replace with your calculated average
+        if(waterData.length == 0){
+            reutrn 0.0;
+        }
+        else{
+            double average = getTotal() / waterData.length;
+            return average;
+        }
     }
 
 
@@ -76,7 +90,13 @@ public class WeeklyData {
         // TODO: Assume the first value is the current maximum
         // TODO: Loop through the rest of the array and update max as needed
         // TODO: Return the maximum value found
-        return 0.0; // replace with the maximum value
+        double max = waterData[0];
+        for (int i = 0; i < waterData - 1; i++){
+            if(waterData[i+1]>waterData[i]){
+                max = waterData[i+1];
+            }
+        }
+        return max; // replace with the maximum value
     }
 
 
