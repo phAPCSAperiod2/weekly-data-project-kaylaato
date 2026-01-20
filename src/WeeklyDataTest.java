@@ -98,6 +98,4 @@ class WeeklyDataTest {
 
         assertEquals(75.0, wd.getMax(), 1e-9);
     }
-
-    @Test
-    v
+}

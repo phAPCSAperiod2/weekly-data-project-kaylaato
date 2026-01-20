@@ -11,7 +11,7 @@ public class WeeklyData {
     // TODO: Declare a private array to store the week’s data
     //       Choose an appropriate type (double[] or int[])
     //       Create other instance variables as necessary
-    private double[] int waterData;
+    private double[] waterData;
 
 
     // -------------------------------------------------------------
@@ -28,9 +28,15 @@ public class WeeklyData {
         // TODO: Create a new array with the same length as input
         // TODO: Copy each value from input into the internal data array
         // NOTE: Do NOT do this.data = input; (that would create aliasing)
-        double[] waterData = new double[input.length];
-        for(int i = 0; i < input.length; i++){
+        if(input == null){
+            this.waterData = new double[0];
+            return;
+        }
+        else{
+            double[] waterData = new double[input.length];
+            for(int i = 0; i < input.length; i++){
             waterData[i] = input[i];
+            }
         }
     }
 
@@ -48,10 +54,10 @@ public class WeeklyData {
         // TODO: Use a loop to add each value in the array to the total
         // TODO: Return the total
         double total = 0;
-        for(num: waterData){
+        for(double num: waterData){
             total += num;
         }
-        return total; // replace with your calculated total
+        return total;
     }
 
 
@@ -69,7 +75,7 @@ public class WeeklyData {
         // TODO: Otherwise, divide the total by the number of elements
         // Hint: You may call getTotal()
         if(waterData.length == 0){
-            reutrn 0.0;
+            return 0.0;
         }
         else{
             double average = getTotal() / waterData.length;
@@ -91,12 +97,12 @@ public class WeeklyData {
         // TODO: Loop through the rest of the array and update max as needed
         // TODO: Return the maximum value found
         double max = waterData[0];
-        for (int i = 0; i < waterData - 1; i++){
-            if(waterData[i+1]>waterData[i]){
-                max = waterData[i+1];
+        for (int i = 1; i < waterData.length; i++){
+            if(waterData[i]>max){
+                max = waterData[i];
             }
         }
-        return max; // replace with the maximum value
+        return max;
     }
 
 
@@ -112,7 +118,13 @@ public class WeeklyData {
         // TODO: Assume the first value is the current minimum
         // TODO: Loop through the rest of the array and update min as needed
         // TODO: Return the minimum value found
-        return 0.0; // replace with the minimum value
+        double min = waterData[0];
+        for (int i = 0; i < waterData.length; i++){
+            if(waterData[i]<min){
+                min = waterData[i];
+            }
+        }
+        return min;
     }
 
 
@@ -135,6 +147,10 @@ public class WeeklyData {
         // TODO: Loop through the data array
         // TODO: Append each value with a day label (Day 1, Day 2, etc.)
         // TODO: Return the completed String
-        return ""; // replace with your formatted output
+        StringBuilder sb = new StringBuilder(); // not sure what a string builder is this line creates string builder object
+        for (int i = 0; i < waterData.length; i++) { // loops through waterData array
+            sb.append("Day ").append(i + 1).append(": ").append(waterData[i]).append("\n"); // appends (adds?) day number and corresponding data to string builder
+        }
+        return sb.toString();
     }
 }
