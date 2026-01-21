@@ -28,17 +28,16 @@ public class WeeklyData {
         // TODO: Create a new array with the same length as input
         // TODO: Copy each value from input into the internal data array
         // NOTE: Do NOT do this.data = input; (that would create aliasing)
-        if(input == null){
+        if (input == null) {
             this.waterData = new double[0];
-            return;
-        }
-        else{
-            double[] waterData = new double[input.length];
-            for(int i = 0; i < input.length; i++){
-            waterData[i] = input[i];
+        } else {
+            this.waterData = new double[input.length];
+            for (int i = 0; i < input.length; i++) {
+                this.waterData[i] = input[i];
             }
         }
     }
+
 
 
     // -------------------------------------------------------------
@@ -54,8 +53,8 @@ public class WeeklyData {
         // TODO: Use a loop to add each value in the array to the total
         // TODO: Return the total
         double total = 0;
-        for(double num: waterData){
-            total += num;
+        for(double data: waterData){
+            total += data;
         }
         return total;
     }
