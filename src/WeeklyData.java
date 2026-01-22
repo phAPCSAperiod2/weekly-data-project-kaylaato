@@ -3,7 +3,7 @@
  * This could represent steps taken, hours of sleep, money spent, screen time,
  * or any other measurable daily value.
  */
-public class WeeklyData {
+public class WeeklyData{
 
     // -------------------------------------------------------------
     // Instance Variables

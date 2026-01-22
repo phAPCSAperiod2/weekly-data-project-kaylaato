@@ -21,6 +21,9 @@ public class App {
         //         Ask the user about their goals (if applicable)
         // -------------------------------------------------------------
         System.out.println("This program helps you track your water intake for the week. 💧");
+        System.out.print("Enter how much water (in ounces) do you aim to drink each day? ");
+        double dailyGoal = input.nextDouble();
+        System.out.println("Your daily goal: " + dailyGoal + " ounces of water");
 
         // -------------------------------------------------------------
         // TODO 3: Create an array to hold 7 days of data
@@ -39,7 +42,7 @@ public class App {
         //         - Re-prompt if the value is invalid
         // -------------------------------------------------------------
         for (int i = 0; i < weekData.length; i++) {
-            System.out.print("Enter water intake in ounces for day " + (i + 1) + ": ");
+            System.out.print("\nEnter water intake in ounces for day " + (i + 1) + ": ");
             double dailyIntake = input.nextDouble();
             while (dailyIntake < 0) {
                 System.out.print("Invalid input. Please enter a non-negative value for day " + (i + 1) + ": ");
@@ -83,10 +86,18 @@ public class App {
         //         --> "You were very hydrated this week!"
         //         --> etc.
         // -------------------------------------------------------------
+        int daysReachedGoal = 0;
+        for (int i = 0; i < weekData.length; i++) {
+            if (weekData[i] > dailyGoal) {
+                daysReachedGoal++;
+            }
+        }
+        System.out.println("You reached your daily goal on " + daysReachedGoal + " out of 7 days.");
+        
         if (weeklyData.getAverage() < 56) {
-            System.out.println("You need to drink more water next week!");
+            System.out.println("\nBased on your average intake, you need to drink more water next week!");
         } else {
-            System.out.println("Great job staying hydrated this week!");
+            System.out.println("\nBased on your average intake, you were very hydrated this week! Keep it up!");
         }
 
     }
